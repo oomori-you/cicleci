@@ -11,3 +11,9 @@ test:
   override:
     - docker run -d -p 80:80 -e BACKEND=localhost:9000 valsamina/nginx; sleep 5
     - curl http://localhost:80/healthcheck
+
+deployment:
+  hub:
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push valsamina/nginx
