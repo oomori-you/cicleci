@@ -1,3 +1,8 @@
-test:
+machine:
+  services:
+    - docker
+
+dependencies:
   override:
-    - echo Hello World
+    - docker info
+    - docker build -t valsamina/nginx ./nginx
