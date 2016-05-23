@@ -9,5 +9,5 @@ dependencies:
 
 test:
   override:
-    - docker run -d -p 80:80 valsamina/nginx; sleep 5
+    - docker run -d -p 80:80 -e BACKEND=localhost:9000 valsamina/nginx; sleep 5
     - curl http://localhost:80/healthcheck
