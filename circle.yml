@@ -6,3 +6,8 @@ dependencies:
   override:
     - docker info
     - docker build -t valsamina/nginx ./nginx
+
+test:
+  override:
+    - docker run -d -p 80:80 valsamina/nginx; sleep 5
+    - curl http://localhost:80/healthcheck
