@@ -5,11 +5,6 @@ if [ "$1" != '' ]; then
     IMAGE_TAG=$1
 fi
 
-IMAGE_TAG='latest'
-if [ "$1" != '' ]; then
-    IMAGE_TAG=$1
-fi
-
 pushd $(cd $(dirname $0); pwd) > /dev/null
 source ./setenv.sh
 
@@ -26,4 +21,3 @@ mkdir -p ~/docker
 
 docker save node > ~/docker/node.tar
 popd > /dev/null
-
